@@ -5,7 +5,7 @@ import AppError from "../../errors/appError";
 const listUserByIdService = async (id: string) => {
   const userRepository = AppDataSource.getRepository(User);
 
-  const user = userRepository.findOneBy({
+  const user = await userRepository.findOneBy({
     id: id,
   });
 

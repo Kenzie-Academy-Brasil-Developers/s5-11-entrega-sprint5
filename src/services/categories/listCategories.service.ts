@@ -5,7 +5,7 @@ import AppError from "../../errors/appError";
 const listCategoriesService = async (): Promise<Category[]> => {
   const categoryRepository = AppDataSource.getRepository(Category);
 
-  const listCategories = categoryRepository.find();
+  const listCategories = await categoryRepository.find();
 
   if (!listCategories) {
     throw new AppError(404, "Category not found");
